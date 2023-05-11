@@ -21,22 +21,22 @@ while True:
         elif opcoes == '1':
             candidato = str(input('nome do candidato: '))
             nota_entrevista = float(input('nota da entrevista: '))
-            while nota_entrevista < 0 or nota_entrevista > 10.1:
+            while nota_entrevista < 0 or nota_entrevista > 10:
                 print('insira uma nota válida entre 0 e 10')
                 nota_entrevista = float(input('nota da entrevista: '))
            
             nota_teorico = float(input('nota do teste teórico: '))
-            while nota_teorico < 0 or nota_teorico > 10.1:
+            while nota_teorico < 0 or nota_teorico > 10:
                 print('insira uma nota válida entre 0 e 10')
                 nota_teorico = float(input('nota do teste teórico: '))
         
             nota_pratica = float(input('nota do teste prático: '))
-            while nota_pratica < 0 or nota_pratica > 10.1:
+            while nota_pratica < 0 or nota_pratica > 10:
                 print('insira uma nota válida entre 0 e 10')
                 nota_pratica = float(input('nota do teste prático: '))
          
             nota_soft = float(input('nivel de soft skill: '))
-            while nota_soft < 0 or nota_soft > 10.1:
+            while nota_soft < 0 or nota_soft > 10:
                 print('insira uma nota válida entre 0 e 10')
                 nota_soft = float(input('nivel de soft skill: '))
         
