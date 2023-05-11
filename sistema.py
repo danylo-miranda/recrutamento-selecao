@@ -7,12 +7,12 @@ soft = []
 #ESTRUTURA DE REPETIÇÃO WHILE: o usuário posde inserir quantos candidatos quiser
 while True:
         opcoes = input(
-        f"\nBem Vindo(a)\n"
-        "[1] Cadastrar Candidato\n"
-        "[2] Listar como Tabela\n"
-        "[3] Resultados\n"
-        "[4] Encerrar o Sistema\n"
-        "Escolha uma das opções:"
+        f'\nBem Vindo(a)\n'
+        '[1] Cadastrar Candidato\n'
+        '[2] Listar como Tabela\n'
+        '[3] Resultados\n'
+        '[4] Encerrar o Sistema\n'
+        'Escolha uma das opções:'
     )
         
         if opcoes == '4': 
@@ -45,7 +45,7 @@ while True:
             teorica.append({'prova teorica':nota_teorico})
             pratica.append({'prova pratica':nota_pratica})
             soft.append({'soft skill':nota_soft}) 
-    
+            print(f'\nAs informações do candidato(a): {candidato} foram inseridas corretamente no sistema.')
 resultado = lista_candidato + entrevista + teorica + pratica + soft
 print(resultado)
 
