@@ -46,7 +46,7 @@ while True:
                 nota_soft = float(input('nivel de soft skill: '))
         
             lista_candidato.append(candidato.title())
-            lista_candidato.append(nota_entrevista) #casting para converter uma variavel float para string
+            lista_candidato.append(nota_entrevista) 
             lista_candidato.append(nota_teorico)
             lista_candidato.append(nota_pratica)
             lista_candidato.append(nota_soft) 
