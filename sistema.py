@@ -1,21 +1,26 @@
 lista_candidato = []
-entrevista = []
-teorica = []
-pratica = []
-soft = []
+
+def listar_resultados(entrevista, teorico, pratica, soft):
+    resultados = [lista_candidato]
+    candidatos_aprovados = []
+    for resultado in resultados:
+        if resultado[1] >= entrevista and resultado[2] >= teorico and resultado[3] >= pratica and resultado[4] >= soft:
+            candidatos_aprovados.append(resultado)
+            
+    
+    return candidatos_aprovados
 
 #ESTRUTURA DE REPETIÇÃO WHILE: o usuário posde inserir quantos candidatos quiser
 while True:
         opcoes = input(
-        f'\nBem Vindo(a)\n'
+        f'\nMENU PRINCIPAL\n'
         '[1] Cadastrar Candidato\n'
-        '[2] Listar como Tabela\n'
-        '[3] Resultados\n'
-        '[4] Encerrar o Sistema\n'
+        '[2] Listar resultados\n'
+        '[3] Encerrar o Sistema\n'
         'Escolha uma das opções:'
     )
         
-        if opcoes == '4': 
+        if opcoes == '3': 
             break
         
         elif opcoes == '1':
@@ -40,12 +45,22 @@ while True:
                 print('insira uma nota válida entre 0 e 10')
                 nota_soft = float(input('nivel de soft skill: '))
         
-            lista_candidato.append({'candidato':candidato})
-            entrevista.append({'entrevista':nota_entrevista})
-            teorica.append({'prova teorica':nota_teorico})
-            pratica.append({'prova pratica':nota_pratica})
-            soft.append({'soft skill':nota_soft}) 
-            print(f'\nAs informações do candidato(a): {candidato} foram inseridas corretamente no sistema.')
-resultado = lista_candidato + entrevista + teorica + pratica + soft
-print(resultado)
+            lista_candidato.append(candidato.title())
+            lista_candidato.append(nota_entrevista) #casting para converter uma variavel float para string
+            lista_candidato.append(nota_teorico)
+            lista_candidato.append(nota_pratica)
+            lista_candidato.append(nota_soft) 
+            print(f'\nAs informações do candidato(a): {candidato.title()} foram inseridas corretamente no sistema.')
+
+        elif opcoes == '2':
+            aprovados = listar_resultados(4,4,8,8)
+            print(aprovados)
+            
+# a função .join junta itens da lista e são separados pelo caractere escolhido sem a necessidade de aspas e vírgulas.
+#separador = '_'
+#juntar = separador.join(lista_candidato) 
+#print(lista_candidato)
+
+mensagem = ('Obrigado por utilizar nosso sistema :)')
+print(mensagem)
 
