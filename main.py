@@ -18,7 +18,10 @@ while True:
         pratica = int(input('Insira o valor da nota da prova prática: '))
         soft = int(input('Insira o nivél de soft skill do candidato: '))
         aprovados = listar_resultados(entrevista, teorico, pratica, soft, candidatos)
+        print('\nCandidatos aprovados e suas respectivas notas: ')
         print(juntar(aprovados))
+        print('\nObrigado por utilizar nosso sistema')
+        break 
     except ValueError:
         print('Insira um número válido')    
 
