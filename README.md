@@ -1,4 +1,4 @@
-![Recrutamento e Seleção](https://cdn.pixabay.com/photo/2020/07/15/13/22/recruitment-5407696_960_720.png)
+![Recrutamento e Seleção](https://i.imgur.com/Cdf5PFB.png)
 
 
 ## Aplicativo que verifica a compatibilidade de um candidato com uma vaga de acordo com seu resultado nas etapas do processo seletivo.
