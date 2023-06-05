@@ -2,7 +2,7 @@ class Recrutamento():
     candidatos = [['joao',4,4,8,8],['ana',2,2,8,8],['silvia',2,2,4,4],['jade',2,2,4,4],['jackeline',6,6,9,9]]
     candidatos_aprovados = []
     
-#FUNÇÃO QUE BUSCA O CANDIDATO DE ACORDO COM AS ENTRADAS DO USUÁRIO
+#MÉTODO QUE BUSCA O CANDIDATO DE ACORDO COM AS ENTRADAS DO USUÁRIO
     def listar_resultados(self, entrevista, teorico, pratica, soft, candidatos):
         
         for lista_candidato in candidatos: #estrutura de repetição para percorrer a lista_candidatos
@@ -25,13 +25,13 @@ class Recrutamento():
             except ValueError:
                 print('Insira um número válido')
 
-    #FUNÇÃO PARA FORMATAR OS RESULTADOS
+    #MÉTODO PARA FORMATAR OS RESULTADOS
     def juntar (self,candidato):
         resultados = [] #função com apenas 1 argumento que será posicionado com a lista de aprovados
         for candidato in self.candidatos_aprovados: # .format() utilizado para formatar os resultados de acordo com o posicionamento de cada iten da lista
             resultado = '{}-e{}_t{}_p{}_s{}'.format(candidato[0],candidato[1], candidato[2], candidato[3], candidato[4]) 
             resultados.append(resultado)
         return ' '.join(resultados) #.join() utilizado para adicionar '_' entre os itens da lista
-    # não consegui relacionar a variavel aprovados no arquivo de funções, por isso, fui obrigado a colocar essa função no arquivo principal
+    
 
       
