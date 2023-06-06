@@ -1,3 +1,5 @@
+import csv
+
 class Recrutamento():
     candidatos = [['joao',4,4,8,8],['ana',2,2,8,8],['silvia',2,2,4,4],['jade',2,2,4,4],['jackeline',6,6,9,9]]
     candidatos_aprovados = []
@@ -12,18 +14,25 @@ class Recrutamento():
     
     def questoes(self):
         while True:
-            try: #utilizei Try e Except para evitar o erro de digitar um caractere ao invés de um numero inteiro
+            try: 
                 entrevista = int(input('Insira o valor da nota da entrevista: '))
+                if entrevista < 0 or entrevista > 10:
+                    raise ValueError('Insira um número válido entre 0 e 10')
                 teorico = int(input('Insira o valor da nota do teste teórico: '))
+                if teorico < 0 or teorico > 10:
+                    raise ValueError('Insira um número válido entre 0 e 10')
                 pratica = int(input('Insira o valor da nota da prova prática: '))
+                if pratica < 0 or pratica > 10:
+                    raise ValueError('Insira um número válido entre 0 e 10')
                 soft = int(input('Insira o nivél de soft skill do candidato: '))
+                if soft < 0 or soft > 10:
+                    raise ValueError('Insira um número válido entre 0 e 10')
                 aprovados = self.listar_resultados(entrevista, teorico, pratica, soft, self.candidatos)
                 print('\nCandidatos aprovados e suas respectivas notas: ')
-                print(self.juntar(aprovados))
-                print('\nObrigado por utilizar nosso sistema')
+                print(self.juntar(aprovados))                
                 break 
             except ValueError:
-                print('Insira um número válido')
+                print('Insira um número válido entre 0 e 10')
 
     #MÉTODO PARA FORMATAR OS RESULTADOS
     def juntar (self,candidato):
@@ -33,5 +42,12 @@ class Recrutamento():
             resultados.append(resultado)
         return ' '.join(resultados) #.join() utilizado para adicionar '_' entre os itens da lista
     
-
+    #MÉTODO PARA SALVAR OS DADOS EM .CSV
+    def save_csv(self,nome_arquivo): #metodo que salva o arquivo em .csv/ abre o arquivo CSV no modo de escrita.
+        with open(f'{nome_arquivo}.csv', 'w', newline='') as arquivo_csv:#parâmetro newline='' para que não haja linhas em branco no arquivo.  
+            escrever_csv = csv.writer(arquivo_csv) #cria um objeto que irá escrever no arquivo CSV. 
+            escrever_csv.writerow(['*****Aprovados*****']) #cabeçalho da tabela utilizando a função writerow.
+            for dados in self.candidatos_aprovados: #percorrer a lista respostas e escreve cada um dos elementos no arquivo CSV.
+                escrever_csv.writerow([dados])
+        print(f'\nArquivo {nome_arquivo} criado e os dados foram escritos.')
       
