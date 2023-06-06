@@ -4,17 +4,19 @@ class Recrutamento():
     candidatos = [['joao',4,4,8,8],['ana',2,2,8,8],['silvia',2,2,4,4],['jade',2,2,4,4],['jackeline',6,6,9,9]]
     candidatos_aprovados = []
     
-#MÉTODO QUE BUSCA O CANDIDATO DE ACORDO COM AS ENTRADAS DO USUÁRIO
+    #MÉTODO QUE BUSCA O CANDIDATO DE ACORDO COM AS ENTRADAS DO USUÁRIO
     def listar_resultados(self, entrevista, teorico, pratica, soft, candidatos):
         
-        for lista_candidato in candidatos: #estrutura de repetição para percorrer a lista_candidatos
-            if lista_candidato[1] >= entrevista and lista_candidato[2] >= teorico and lista_candidato[3] >= pratica and lista_candidato[4] >= soft: #condições que comparam as entradas do usuário com as notas que tem na lista_candidato
-                self.candidatos_aprovados.append(lista_candidato) #adiciona os itens que cumprem as condições a lista candidatos_aprovados
+        for nota_corte in candidatos: #estrutura de repetição para percorrer a lista de candidatos
+            if nota_corte[1] >= entrevista and nota_corte[2] >= teorico and nota_corte[3] >= pratica and nota_corte[4] >= soft: 
+                self.candidatos_aprovados.append(nota_corte) #adiciona os itens que cumprem as condições a lista candidatos_aprovados
         return self.candidatos_aprovados
+        #condições que comparam as entradas do usuário com as notas que tem na lista de candidato partir da posição 1 da lista já que a posição 0 é uma string com o nome do candidato
     
+    #MÉTODO QUE SOLICITA AS NOTAS E VERIFICA AS ENTRADAS DO USUARIO
     def questoes(self):
         while True:
-            try: 
+            try: # impede que o usuario digite um valor menor do que 0 e maior do que 10
                 entrevista = int(input('Insira o valor da nota da entrevista: '))
                 if entrevista < 0 or entrevista > 10:
                     raise ValueError('Insira um número válido entre 0 e 10')
@@ -27,9 +29,9 @@ class Recrutamento():
                 soft = int(input('Insira o nivél de soft skill do candidato: '))
                 if soft < 0 or soft > 10:
                     raise ValueError('Insira um número válido entre 0 e 10')
-                aprovados = self.listar_resultados(entrevista, teorico, pratica, soft, self.candidatos)
+                aprovados = self.listar_resultados(entrevista, teorico, pratica, soft, self.candidatos)#MÉTODO LISTAR_RESULTADOS
                 print('\nCandidatos aprovados e suas respectivas notas: ')
-                print(self.juntar(aprovados))                
+                print(self.juntar(aprovados))#MÉTODO QUE FORMATA OS RESULTADOS                
                 break 
             except ValueError:
                 print('Insira um número válido entre 0 e 10')
